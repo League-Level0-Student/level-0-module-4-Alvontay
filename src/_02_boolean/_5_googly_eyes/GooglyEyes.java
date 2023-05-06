@@ -3,6 +3,7 @@ package _02_boolean._5_googly_eyes;
 import processing.core.PApplet;
 import processing.core.PImage;
 
+
 /*
  * Goal: Put googly eyes on a face!
  * 
@@ -41,6 +42,8 @@ public class GooglyEyes extends PApplet {
     static final int HEIGHT = 600;
     
     PImage face;
+
+    
     
     @Override
     public void settings() {
@@ -49,12 +52,32 @@ public class GooglyEyes extends PApplet {
     
     @Override
     public void setup() {
-
+        
+        face = loadImage("lemur.jpeg");
+        
+        face.resize(WIDTH, HEIGHT);
     }
 
     @Override
     public void draw() {
-
+    	background(face);
+    	
+    	//270 +- 75
+    	//280 +- 75
+    	if (mouseX > 335 || mouseX < 205 || mouseY > 345 || mouseY < 215) {
+    		mouseX = 270;
+    		mouseY = 280;
+    	}
+    	
+    	fill(250,250,250);
+    	ellipse(270,280,150,150);
+    	fill(0,0,0);
+    	ellipse(mouseX, mouseY,30,30);
+    
+    	fill(250,250,250);
+    	ellipse(455,285,150,150);
+    	fill(0,0,0);
+    	ellipse(mouseX + 185, mouseY + 5,30,30);
     }
 
     static public void main(String[] args) {
